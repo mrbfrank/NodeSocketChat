@@ -1,15 +1,12 @@
 // socket.io chat server
 
-var fs = require('fs');
 var express = require('express');
 var app = express();
 var server = app.listen(1337);
 var io = require('socket.io').listen(server);
 
-// index.html
-app.get('/', function(req, res) {
-	fs.createReadStream('index.html').pipe(res);
-});
+// serve public assets
+app.use(express.static('public'));
 
 // sockets
 io.sockets.on('connection', function(client) {

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+		<script src="//code.jquery.com/jquery.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			$(function() {
+				// connect to server
+				var socket = io.connect(window.location.href);
+
+				// display messages emitted from server
+				socket.on('message:server', function(data) {
+					$("#messages").append(
+						'<p style="color:blue">' +
+						data.message + '</p>'
+					);
+				});
+
+				// handle form submit
+				$("#message_form").on('submit', function(event) {
+					// prevent POST
+					event.preventDefault();
+
+					// parse message
+					var $input = $('[name="message"]');
+					var message = $input.val();
+
+					// send message
+					if (message) {
+						socket.emit('message:client', {message: message});
+					}
+
+					// display message
+					$("#messages").append(
+						'<p style="color:green">' +
+						message + '</p>'
+					);
+
+					// clear form
+					$input.val('');
+				});
+
+				// listen for errors
+				socket.on('error', function() {
+					console.error(e);
+				});
+			});
+		</script>
+		<title>NodeSocketChat</title>
+	</head>
+	<body>
+		<div class="fullscreen_bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+						<div class="card">
+							<div class="card-header text-xs-center">NodeSocketChat</div>
+							<div class="card-block">
+								<div id="messages"></div>
+							</div>
+							<div class="card-footer">
+							<form id="message_form" method="post">
+								<div class="input-group">
+									<input class="form-control" name="message" placeholder="Message to send" type="text">
+									<span class="input-group-btn">
+									<button class="btn btn-default" type="submit">Submit</button>
+									</span>
+								</div><!-- /input-group -->
+							</form>
+							</div><!-- /card-footer -->
+						</div><!-- /card -->
+					</div><!-- /col -->
+				</div><!-- /row -->
+			</div><!-- /container -->
+		</div><!-- /fullscreen_bg -->
+	</body>
+</html>

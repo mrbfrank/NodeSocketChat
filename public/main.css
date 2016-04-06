@@ -1,0 +1,22 @@
+/*html, body {
+  height:100%;
+}*/
+
+.fullscreen_bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(http://31.media.tumblr.com/tumblr_m6qyybDaS11qzw1qyo1_500.gif);
+  background-size: cover;
+  background-position: 50% 50%;
+  /* transition: opacity .25s ease-out; */
+}
+
+.card-block {
+  padding-bottom: 0 !important;
+  min-height: 10;
+  max-height: 10;
+  overflow-y: scroll;
+}
