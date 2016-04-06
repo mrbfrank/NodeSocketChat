@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//code.jquery.com/jquery.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			$(function() {
+
+				// connect to server
+				var socket = io.connect(window.location.href);
+
+				// display messages emitted from server
+				socket.on('message:server', function(data) {
+					$("#messages").append(
+						'<li style="color:red">' +
+						data.message + '</li>'
+					);
+				});
+
+				// handle form submit
+				$("#message_form").on('submit', function(event) {
+					// prevent POST
+					event.preventDefault();
+
+					// parse message
+					var $input = $('[name="message"]');
+					var message = $input.val();
+
+					// send message
+					if (message) {
+						socket.emit('message:client', {message: message});
+					}
+
+					// display message
+					$("#messages").append(
+						'<li style="color:green">' +
+						message + '</li>'
+					);
+
+					// clear form
+					$input.val('');
+				});
+
+				// listen for errors
+				socket.on('error', function() {
+					console.error(e);
+				});
+			});
+		</script>
+		<title>Socket.io Chat</title>
+	</head>
+	<body>
+		<ul id="messages"></ul>
+
+		<form id="message_form" method="post">
+			<input name="message" placeholder="Message to send" type="text">
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
