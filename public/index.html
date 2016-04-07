@@ -1,8 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<!-- Bootstrap meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	    <!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
 		<link rel="stylesheet" href="main.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+		<title>NodeSocketChat</title>
+	</head>
+	<body>
+		<div class="fullscreen_bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+						<div class="card">
+							<div class="card-header text-xs-center">NodeSocketChat</div>
+							<div class="card-block">
+								<div id="messages"></div>
+							</div>
+							<div class="card-footer">
+							<form id="message_form" method="post">
+								<div class="input-group">
+									<input class="form-control" name="message" placeholder="Message to send" type="text">
+									<span class="input-group-btn">
+									<button class="btn btn-default" type="submit">Submit</button>
+									</span>
+								</div><!-- /input-group -->
+							</form>
+							</div><!-- /card-footer -->
+						</div><!-- /card -->
+					</div><!-- /col -->
+				</div><!-- /row -->
+			</div><!-- /container -->
+		</div><!-- /fullscreen_bg -->
+
 		<script src="//code.jquery.com/jquery.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
@@ -48,32 +83,5 @@
 				});
 			});
 		</script>
-		<title>NodeSocketChat</title>
-	</head>
-	<body>
-		<div class="fullscreen_bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-						<div class="card">
-							<div class="card-header text-xs-center">NodeSocketChat</div>
-							<div class="card-block">
-								<div id="messages"></div>
-							</div>
-							<div class="card-footer">
-							<form id="message_form" method="post">
-								<div class="input-group">
-									<input class="form-control" name="message" placeholder="Message to send" type="text">
-									<span class="input-group-btn">
-									<button class="btn btn-default" type="submit">Submit</button>
-									</span>
-								</div><!-- /input-group -->
-							</form>
-							</div><!-- /card-footer -->
-						</div><!-- /card -->
-					</div><!-- /col -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</div><!-- /fullscreen_bg -->
 	</body>
 </html>
