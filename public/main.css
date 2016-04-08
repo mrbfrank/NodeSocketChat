@@ -19,7 +19,7 @@
 .card-block {
   padding-bottom: 0 !important;
   height: calc(100vh - 140px);
-  overflow-y: auto; 
+  overflow-y: scroll; 
 }
 
 .centered {
