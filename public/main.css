@@ -18,30 +18,14 @@
 
 .card-block {
   padding-bottom: 0 !important;
-  /*min-height: 300px;*/
-  /*max-height: 500px;*/
-
-  /*min-height:100%;
-  overflow-y: scroll;*/
-
-  height: calc(100vh - 200px);
+  height: calc(100vh - 140px);
   overflow-y: auto; 
-}
-
-
-.container {
-  /*position: relative;*/
-  height: 100%;
-  /*border: 1px solid;*/
 }
 
 .centered {
   position: absolute;
-  /*top: 50%;
-  left:50%;
-  transform: translate(-50%,-50%);*/
   top: 50%;
   transform: translateY(-50%);
-  /*border: 1px dashed deeppink;*/
   padding-right: 15px;
+  /*border: 1px dashed deeppink;*/
 }
