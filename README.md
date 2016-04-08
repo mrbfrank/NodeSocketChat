@@ -1,13 +1,16 @@
 NodeSocketChat
 ==============
 
-npm install
+$ npm install
 
 
-node server.js
+$ node server.js
 
 
-Open 2 browser windows: http://localhost:1337
+Open 2 browser windows: [http://localhost:1337](http://localhost:1337)
 
 
-chat!
+Chat!
+
+
+Demo: [https://freqnodechat.herokuapp.com/](https://freqnodechat.herokuapp.com/)
