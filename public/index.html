@@ -25,7 +25,7 @@
 
                 <form id="name_form" method="post" autocomplete="off">
                   <div class="input-group">
-                    <input class="form-control" name="name" placeholder="What is your name?" type="text">
+                    <input class="form-control" name="name" placeholder="What is your name?" type="text" autofocus="autofocus">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit">Submit</button>
                     </span>
@@ -68,6 +68,9 @@
           // toggle name & message form display
           $("#name_form").toggle();
           $("#message_form").toggle();
+
+          // focus cursor on message input element
+          $('[name="message"]').focus();
 
         });
 
